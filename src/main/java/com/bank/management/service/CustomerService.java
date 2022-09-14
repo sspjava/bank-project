@@ -7,7 +7,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bank.management.entity.Customer;
+import com.bank.management.entity.Account;
+import com.bank.management.entity.User;
 import com.bank.management.repository.AccountRepo;
 import com.bank.management.repository.CustomerRepo;
 
@@ -21,9 +22,9 @@ public class CustomerService {
 	@Autowired
 	AccountRepo accountRepo;
 
-	public boolean saveCustomer(Customer customer) {
-       Customer entity = new Customer();
-       entity.setCustomerId(customer.getCustomerId());
+	public boolean saveUser(User customer) {
+       User entity = new User();
+       entity.setId(customer.getId());
        entity.setFirstName(customer.getFirstName());
        entity.setLastName(customer.getLastName());
        entity.setEmailId(customer.getEmailId());
@@ -33,14 +34,20 @@ public class CustomerService {
 	}
 
 
-	public Customer getCustomer() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	public Customer getcustomerDetails(String customerId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<User> getAllUser() {
+		Iterable<User> userList = customerRepo.findAll();
+		List<User> list = new ArrayList<>();
+		for(User entity : userList) {
+			User user = new User();
+			user.setId(entity.getId());
+			user.setFirstName(entity.getFirstName());
+			user.setLastName(entity.getLastName());
+			user.setEmailId(entity.getEmailId());
+			user.setPassword(entity.getPassword());
+			 list.add(user);
+		}
+		return list;
 	}
 
 }

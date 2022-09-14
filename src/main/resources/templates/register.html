@@ -11,99 +11,58 @@
 </head>
 <body class="d-flex align-items-center justify-content-center">
 
-    <!-- Card: Registration Form Card -->
     <div class="card registration-form-card col-6 bg-transparent border-0">
-        <!-- Card Body -->
         <div class="card-body">
-            <!-- Form Header -->
             <h1 class="form-header card-title mb-3">
                 <i class="fa fa-edit"></i> Register
             </h1>
-            <!-- End Of Form Header -->
-
-            <!-- Display Message -->
-            
-               
-            
-            <!-- End Of Display Message -->
-
-            <!-- Display Message -->
-            
-                
-            <!-- End Of Display Message -->
-
-            <!-- Regsitration Form -->
+           
             <form action="/register" class="reg-form" modelAttribute="registerUser">
-                <!-- Row -->
+   
                 <div class="row">
-                    <!-- From Group -->
+ 
                     <div class="form-group col">
                         <input type="text" path="first_name" class="form-control form-control-lg" placeholder="Enter First Name"/>
                         <errors path="first_name" class="text-white bg-danger"/>
                     </div>
-                    <!-- End Of From Group -->
 
-                    <!-- From Group -->
                     <div class="form-group col">
                         <input type="text" path="last_name" class="form-control form-control-lg" placeholder="Enter Last Name"/>
                         <errors path="last_name" class="text-white bg-danger"/>
                     </div>
-                    <!-- End Of From Group -->
                 </div>
-                <!-- End Of Row -->
 
-                <!-- From Group -->
                 <div class="form-group col">
                     <input type="email" path="email" class="form-control form-control-lg" placeholder="Enter Email"/>
                     <errors path="email" class="text-white bg-danger"/>
 
                 </div>
-                <!-- End Of From Group -->
-
-                <!-- Row -->
                 <div class="row">
                     <!-- From Group -->
                     <div class="form-group col">
                         <input type="password" path="password" class="form-control form-control-lg" placeholder="Enter Password"/>
                         <errors path="password" class="text-white bg-danger"/>
                     </div>
-                    <!-- End Of From Group -->
-
-                    <!-- From Group -->
                     <div class="form-group col">
                         <input type="password" name="confirm_password" class="form-control form-control-lg" placeholder="Confirm Password"/>
                         
                     </div>
-                    <!-- End Of From Group -->
                 </div>
-                <!-- End Of Row -->
 
-                <!-- From Group -->
                 <div class="form-group col">
                     <button class="btn btn-lg">Register</button>
                 </div>
-                <!-- End Of From Group -->
 
             </form>
-            <!-- End Of Regsitration Form -->
-
-            <!-- Card Text -->
             <p class="card-text text-white my-2">
-                Already have an account? <span class="ms-2"><a href="login.html" class="btn bt-sm text-warning">Sign In</a></span>
+                Already have an account? <span class="ms-2"><a href="/login" class="btn bt-sm text-warning">Sign In</a></span>
             </p>
-            <!-- Card Text -->
-
-            <!-- Back Button To Landing Page -->
             <small class="text-warning">
-                <i class="fa fa-arrow-alt-circle-left"></i> <a href="index.html" class="btn btn-sm text-warning">Back</a>
+                <i class="fa fa-arrow-alt-circle-left"></i> <a href="/index" class="btn btn-sm text-warning">Back</a>
             </small>
-            <!-- End Of Back Button To Landing Page -->
 
         </div>
-        <!-- End Of Card Body -->
     </div>
-    <!-- Card: Registration Form Card -->
-
 
 </body>
 </html>

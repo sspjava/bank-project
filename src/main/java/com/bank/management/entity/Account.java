@@ -1,6 +1,8 @@
 package com.bank.management.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,15 +14,27 @@ import javax.persistence.Table;
 @Table(name = "account")
 public class Account {
 	 @Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
+	// @GeneratedValue(strategy = GenerationType.AUTO)
 	 private int accountId;
 	 private String accountNumber;
 	 private String accountName;
 	 private String accountType;
 	 private long accountBalance;
-	 @OneToOne
-	 @JoinColumn(name = "customer_id")
-	 private Customer customerId;
+	 @OneToOne(cascade= {CascadeType.ALL})
+	 @JoinColumn(name = "user_id")
+	 private User uid ;
+	 
+	public User getUid() {
+		return uid;
+	}
+	
+	public Account(User uid) {
+		super();
+		this.uid = uid;
+	}
+	public void setUid(User uid) {
+		this.uid = uid;
+	}
 	public int getAccountId() {
 		return accountId;
 	}
@@ -51,29 +65,18 @@ public class Account {
 	public void setAccountBalance(long accountBalance) {
 		this.accountBalance = accountBalance;
 	}
-	public Customer getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(Customer customerId) {
-		this.customerId = customerId;
-	}
-	/**
-	 * @param accountId
-	 * @param accountNumber
-	 * @param accountName
-	 * @param accountType
-	 * @param accountBalance
-	 * @param customerId
-	 */
+	
+	
+	
 	public Account(int accountId, String accountNumber, String accountName, String accountType, long accountBalance,
-			Customer customerId) {
+			User customerId) {
 		super();
 		this.accountId = accountId;
 		this.accountNumber = accountNumber;
 		this.accountName = accountName;
 		this.accountType = accountType;
 		this.accountBalance = accountBalance;
-		this.customerId = customerId;
+		
 	}
 	public Account() {
 		// TODO Auto-generated constructor stub

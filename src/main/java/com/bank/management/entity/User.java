@@ -1,28 +1,44 @@
 package com.bank.management.entity;
 
-import javax.persistence.Column;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
+
 @Entity
-@Table(name = "customer")
-public class Customer {
+@Table(name = "user")
+public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "customer_id")
-    private int customerId;
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+    private int Id;
     private String firstName;
     private String lastName;
     private String emailId;
     private String password;
-	public int getCustomerId() {
-		return customerId;
+
+	
+	public User(int id, String firstName, String lastName, String emailId, String password) {
+		super();
+		Id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.emailId = emailId;
+		this.password = password;
 	}
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+	
+	public int getId() {
+		return Id;
+		
+	}
+	public void setId(int id) {
+		Id = id;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -48,22 +64,9 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	/**
-	 * @param customerId
-	 * @param firstName
-	 * @param lastName
-	 * @param emailId
-	 * @param password
-	 */
-	public Customer(int customerId, String firstName, String lastName, String emailId, String password) {
-		super();
-		this.customerId = customerId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.emailId = emailId;
-		this.password = password;
-	}
-	public Customer() {
+	
+	
+	public User() {
 		// TODO Auto-generated constructor stub
 	}
 
